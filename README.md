@@ -1,5 +1,5 @@
 # 📊 RAG Policy Chatbot Using Vector Search & LLM
-
+---
 ## 🔄 System Flow (End-to-End RAG Pipeline)
 ```text
 START
