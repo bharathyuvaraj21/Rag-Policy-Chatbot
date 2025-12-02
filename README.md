@@ -35,7 +35,7 @@ START
   │
   ▼
 END
-
+```
 ## 📘 Project Overview
 
 This project implements a **Retrieval-Augmented Generation (RAG) based Question Answering system** that enables users to ask natural language questions on internal company policy documents such as **Refund Policy** and **Employee Leave Policy**.
