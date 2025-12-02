@@ -1,5 +1,16 @@
 # 📊 RAG Policy Chatbot Using Vector Search & LLM
 
+flowchart LR
+A[User Query] --> B[FastAPI Endpoint]
+B --> C[Sentence Transformer<br>Query Embedding]
+C --> D[FAISS Vector Search]
+D --> E[Top-K Relevant Chunks]
+E --> F[Context Builder]
+F --> G[GPT Language Model]
+G --> H[Answer Cleaning]
+H --> I[API Response with Sources]
+
+
 ## 📘 Project Overview
 This project implements a **Retrieval-Augmented Generation (RAG) based Question Answering system** that enables users to ask natural language questions on internal company policy documents (such as **Refund Policy** and **Employee Leave Policy**).
 
