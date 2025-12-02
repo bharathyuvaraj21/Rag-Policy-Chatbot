@@ -1,0 +1,10 @@
+[
+  {
+    "chunk": "Company Refund & Return Policy Our company allows customers to return products within 30 days of purchase. To be eligible for a return, the product must be unused, in its original packaging, and accompanied by the original receipt. Refunds are processed within 7–10 business days after the returned product is received and inspected. The refund will be credited back to the original payment method. Digital products, downloadable software, and perishable goods are non-refundable. If a customer receives a damaged product, they must report it within 48 hours of delivery. The company will arrange a replacement or full refund after verification. For any disputes related to refunds, customers can contact the support team via email or phone during business hours.",
+    "source": "Doc1.txt"
+  },
+  {
+    "chunk": "Employee Leave Policy Employees are entitled to 24 paid leaves per year. This includes casual leave, sick leave, and earned leave. Unused earned leave can be carried forward to the next financial year up to a maximum of 30 days. Sick leave must be supported with a medical certificate if it exceeds three consecutive days. Employees must apply for leave at least two days in advance through the HR portal. Emergency leave must be informed to the reporting manager as soon as possible. Maternity leave of 26 weeks is provided to eligible female employees as per government regulations. Paternity leave of 10 working days is available. Leave without pay may be granted at management discretion in special circumstances.",
+    "source": "Doc2.txt"
+  }
+]
