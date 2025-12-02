@@ -157,7 +157,10 @@ This system significantly reduces manual search time and improves productivity.
 pip install -r requirements.txt
 ```
 ### Step 2: Run the FastAPI Server
+```bash
 python -m uvicorn app:app --port 8001
-
+```
 ### Step 3: Open in Browser
+```bash
 http://localhost:8001/docs
+```
