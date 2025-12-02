@@ -1,69 +1,113 @@
-📊 RAG Policy Chatbot Using Vector Search & LLM
-📘 Project Overview
+# 📊 RAG Policy Chatbot Using Vector Search & LLM
 
-This project implements a Retrieval-Augmented Generation (RAG) based Question Answering system that enables users to ask natural language questions on internal company policy documents (such as Refund Policy and Employee Leave Policy). The system retrieves the most relevant document sections using semantic search with vector embeddings and generates accurate answers using a language model, exposed through a FastAPI backend.
+## 📘 Project Overview
+This project implements a **Retrieval-Augmented Generation (RAG) based Question Answering system** that enables users to ask natural language questions on internal company policy documents (such as **Refund Policy** and **Employee Leave Policy**).
 
-The primary goal is to eliminate manual document searching and provide instant, reliable, document-grounded answers through an API.
+The system retrieves the most relevant document sections using **semantic search with vector embeddings** and generates accurate answers using a **language model**, exposed through a **FastAPI backend**.
 
-🗃️ Data Sources
+The primary goal is to **eliminate manual document searching** and provide **instant, reliable, document-grounded answers** through an API.
 
+---
+
+## 🗃️ Data Sources
 The system uses internally created policy documents:
 
-Company Refund & Return Policy (Doc1.txt)
+- `Doc1.txt` – Company Refund & Return Policy  
+- `Doc2.txt` – Employee Leave Policy  
 
-Employee Leave Policy (Doc2.txt)
+Each document contains structured textual rules and conditions used for retrieval.  
+The documents are stored as **TXT files**, parsed and chunked for vectorization.
 
-Each document contains structured textual rules and conditions used for retrieval.
-The documents are stored as TXT files, which are parsed and chunked for vectorization.
+---
 
-⚙️ Methodology
-1️⃣ Document Ingestion
+## ⚙️ Methodology
 
-Loaded all TXT files from the input directory.
+### 1. Document Ingestion
+- Loaded all TXT files from the input directory.
+- Each document was read and stored with metadata (source filename).
 
-Each document was read and stored with metadata (source filename).
+### 2. Text Chunking
+- Documents were split into overlapping chunks (250 words with 30-word overlap).
+- This improves semantic retrieval and avoids loss of context during embedding.
 
-2️⃣ Text Chunking
+### 3. Embedding Generation
+- Each chunk was converted into a dense vector using:
+  - `sentence-transformers/all-MiniLM-L6-v2`
+- These embeddings capture the semantic meaning of text.
 
-Documents were split into overlapping chunks (250 words with 30-word overlap).
+### 4. Vector Indexing with FAISS
+- All embeddings were stored in a FAISS vector index.
+- Enables fast similarity search.
 
-This improves semantic retrieval and avoids loss of context during embedding.
+### 5. Query Retrieval
+- User questions are converted into embeddings.
+- FAISS retrieves the Top-K most relevant document chunks.
 
-3️⃣ Embedding Generation
+### 6. Answer Generation (RAG Pipeline)
+- Retrieved chunks are passed as context to the language model.
+- The model generates an answer strictly from document content.
+- Output is cleaned to remove hallucinations.
 
-Each chunk was converted into a dense vector using:
+### 7. API Deployment
+- The full pipeline is deployed using FastAPI.
+- Users interact via a REST API endpoint.
+- API testing is done using Swagger UI.
 
-Sentence Transformers – all-MiniLM-L6-v2
+---
 
-These embeddings capture the semantic meaning of text instead of just keywords.
+## 🧠 Technologies Used
+- **Programming Language:** Python  
+- **Embeddings:** Sentence Transformers (MiniLM)  
+- **Vector Database:** FAISS  
+- **Language Model:** GPT-2 / DistilGPT-2  
+- **Backend:** FastAPI, Uvicorn  
+- **Prototyping:** Jupyter Notebook  
+- **Storage:** JSON, TXT files  
 
-4️⃣ Vector Indexing with FAISS
+---
 
-All embeddings were stored in a FAISS vector index.
+## 📈 Key Functional Results
+- Answers policy-related questions using only internal documents.
+- Prevents hallucination by grounding answers in retrieved content.
+- Supports multi-document knowledge base.
+- Exposed through a production-style REST API.
+- Demonstrates a full end-to-end RAG implementation.
 
-This enables fast similarity search for user queries.
+### ✅ Example
+**Question:**  
+How many paid leaves do employees get per year?
 
-5️⃣ Query Retrieval
+**Answer:**  
+Employees are entitled to 24 paid leaves per year.
 
-User questions are converted into embeddings.
+---
 
-FAISS retrieves the Top-K most relevant document chunks based on vector similarity.
+## 💡 Practical Applications
+- HR policy chatbots  
+- Customer support automation  
+- Internal document search engines  
+- Legal & compliance document retrieval  
+- Enterprise knowledge assistants  
 
-6️⃣ Answer Generation (RAG Pipeline)
+This system significantly reduces manual search time and improves productivity.
 
-Retrieved text chunks are passed as context to a language model.
+---
 
-The model generates an answer strictly from the retrieved document content.
+## 🚀 Future Enhancements
+- Replace GPT-2 with instruction-tuned models (LLaMA, GPT-4, Claude)
+- Add PDF ingestion and OCR support
+- Add authentication and activity logging
+- Deploy using Docker & Cloud (AWS / GCP)
+- Add a frontend chat UI (Streamlit or React)
+- Enable automatic document re-indexing
 
-Output is cleaned to remove prompt leakage and hallucination.
+---
 
-7️⃣ API Deployment
+## ✅ How to Run the Project
 
-The complete pipeline is exposed using FastAPI.
-
-Users interact with the system via a REST API endpoint.
-
-API is tested using Swagger UI (/docs).
+### Step 1: Install Dependencies
+```bash
+pip install -r requirements.txt
 
 🧠 Technologies Used
 
