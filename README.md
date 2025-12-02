@@ -1,6 +1,7 @@
 # 📊 RAG Policy Chatbot Using Vector Search & LLM
 
-## 📘 Project Flowchart
+## 🔄 System Flow (End-to-End RAG Pipeline)
+
 START
   │
   │  User Sends Question via API
